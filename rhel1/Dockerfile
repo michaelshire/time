@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/ubi7
 MAINTAINER Veer Muchandi veer@redhat.com
 ADD ./init.sh ./
-RUN yum install wget
+RUN yum install wget -y && yum clean all -y
 RUN wget https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.9.6-1.el7.ans.noarch.rpm
 RUN yum install ansible-2.9.6-1.el7.ans.noarch.rpm
 RUN yum install ansible
