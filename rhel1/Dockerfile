@@ -5,8 +5,14 @@ ADD ./init.sh ./
 # RUN yum install net-tools -y && yum clean all -y
 # RUN yum install bind-utils -y && yum clean all -y
 # RUN yum install mod_ssl -y && yum clean all -y
-RUN subscription-manager repos --enable rhel-7-server-ansible-2.9-rpms
-RUN yum install ansible -y && yum clean all -y
+RUN INSTALL_PKGS="rh-python36-python-pip" && \
+    DISABLE_REPOS=--disablerepo='rhel-*' && \
+    yum $DISABLE_REPOS install -y $INSTALL_PKGS && \
+    source scl_source enable rh-python36 && \
+    scl enable rh-python36 bash && \
+    python3 -m pip install ansible==$ANSIBLE_VERSION paramiko && \
+    yum $DISABLE_REPOS clean all -y && \
+    rm -rf /var/cache/yum
 RUN chown 1001:1001 init.sh && chmod o+w init.sh
 USER 1001
 CMD ["./init.sh"]
