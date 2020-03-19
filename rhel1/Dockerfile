@@ -1,10 +1,13 @@
 FROM registry.access.redhat.com/ubi7
 MAINTAINER Veer Muchandi veer@redhat.com
 ADD ./init.sh ./
-RUN yum install nmap-ncat -y && yum clean all -y
-RUN yum install net-tools -y && yum clean all -y
-RUN yum install bind-utils -y && yum clean all -y
-RUN yum install mod_ssl -y && yum clean all -y
-RUN chown 1001:1001 init.sh && chmod o+w init.sh
+RUN wget https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.9.6-1.el7.ans.noarch.rpm
+RUN yum install ansible-2.9.6-1.el7.ans.noarch.rpm
+RUN yum install ansible
+# RUN yum install nmap-ncat -y && yum clean all -y
+# RUN yum install net-tools -y && yum clean all -y
+# RUN yum install bind-utils -y && yum clean all -y
+# RUN yum install mod_ssl -y && yum clean all -y
+# RUN chown 1001:1001 init.sh && chmod o+w init.sh
 USER 1001
 CMD ["./init.sh"]
