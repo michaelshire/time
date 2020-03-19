@@ -22,11 +22,14 @@ RUN INSTALL_PKGS="rh-python36-python-pip" && \
     python3 -m pip install ansible==$ANSIBLE_VERSION paramiko && \
     yum $DISABLE_REPOS clean all -y && \
     rm -rf /var/cache/yum
-
-ADD scl_enable /usr/share/container-scripts/
-ENV BASH_ENV=/usr/share/container-scripts/scl_enable \
-    ENV=/usr/share/container-scripts/scl_enable \
-    PROMPT_COMMAND="./usr/share/container-scripts/scl_enable"
+RUN yum install nmap-ncat -y && yum clean all -y
+RUN yum install net-tools -y && yum clean all -y
+RUN yum install bind-utils -y && yum clean all -y
+RUN yum install mod_ssl -y && yum clean all -y
+# ADD scl_enable /usr/share/container-scripts/
+#ENV BASH_ENV=/usr/share/container-scripts/scl_enable \
+#    ENV=/usr/share/container-scripts/scl_enable \
+#    PROMPT_COMMAND="./usr/share/container-scripts/scl_enable"
 RUN chown 1001:1001 init.sh && chmod o+w init.sh
 USER 1001
 CMD ["./init.sh"]
