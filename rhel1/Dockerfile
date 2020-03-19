@@ -5,6 +5,7 @@ ADD ./init.sh ./
 # RUN yum install net-tools -y && yum clean all -y
 # RUN yum install bind-utils -y && yum clean all -y
 # RUN yum install mod_ssl -y && yum clean all -y
+ENV ANSIBLE_VERSION=2.8.2
 RUN INSTALL_PKGS="rh-python36-python-pip" && \
     DISABLE_REPOS=--disablerepo='rhel-*' && \
     yum $DISABLE_REPOS install -y $INSTALL_PKGS && \
