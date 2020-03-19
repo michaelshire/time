@@ -11,6 +11,7 @@ LABEL com.redhat.component="jenkins-agent-ansible-ubi7-docker" \
 
 ENV ANSIBLE_VERSION=2.8.2
 
+ADD ./init.sh ./
 ADD ubi.repo /etc/yum.repos.d/ubi.repo
 
 RUN INSTALL_PKGS="rh-python36-python-pip" && \
@@ -26,5 +27,6 @@ ADD scl_enable /usr/share/container-scripts/
 ENV BASH_ENV=/usr/share/container-scripts/scl_enable \
     ENV=/usr/share/container-scripts/scl_enable \
     PROMPT_COMMAND="./usr/share/container-scripts/scl_enable"
-
+RUN chown 1001:1001 init.sh && chmod o+w init.sh
 USER 1001
+CMD ["./init.sh"]
