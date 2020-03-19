@@ -1,14 +1,4 @@
 FROM registry.access.redhat.com/ubi7
-# FROM quay.io/openshift/origin-jenkins-agent-base:4.2
-
-# LABEL com.redhat.component="jenkins-agent-ansible-ubi7-docker" \
-#      name="openshift/origin-jenkins-agent-ansible-ubi7" \
-#     version="4.2" \
-#      architecture="x86_64" \
-#      release="1" \
-#      io.k8s.display-name="Jenkins Agent Ansible" \
-#      io.k8s.description="The jenkins agent ansible image has ansible on top of the jenkins agent base image." \
-#      io.openshift.tags="openshift,jenkins,agent,ansible"
 
 ENV ANSIBLE_VERSION=2.8.2
 
