@@ -1,5 +1,4 @@
 FROM registry.access.redhat.com/ubi7
-MAINTAINER Veer Muchandi veer@redhat.com
 ADD ./init.sh ./
 
 
