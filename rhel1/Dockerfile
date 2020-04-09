@@ -4,7 +4,7 @@ ADD ./init.sh ./
 
 
 ADD ./azure-cli.repo /etc/yum.repos.d/
-RUN yum install python3 -y && yum clean all -y
+RUN yum install rh-python36 -y && yum clean all -y
 RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
 RUN yum install azure-cli -y && yum clean all -y
 
