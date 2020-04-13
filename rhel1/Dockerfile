@@ -14,7 +14,7 @@ RUN yum install -y python3 python3-virtualenv python3-pip
 
 # Install Ansible
 # RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y && yum clean all -y
-RUN pip3 install ansible
+RUN pip3 install --user ansible
 # RUN yum install ansible -y && yum clean all -y
 RUN ansible --version
 
