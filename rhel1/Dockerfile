@@ -15,6 +15,7 @@ RUN az --version
 # Install Ansible
 RUN pip3 install --user ansible
 RUN ansible --version
+RUN chmod 777 /tmp/.ansible
 
 # Install other tools
 RUN yum install atomic-openshift-clients
