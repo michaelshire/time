@@ -7,7 +7,7 @@ RUN yum install -y python3 python3-virtualenv python3-pip && yum clean all -y
 RUN python3 --version
 
 # Install Ansible
-RUN pip3 install --user ansible
+RUN pip3 install ansible
 RUN ansible --version
 RUN chmod 777 /tmp/.ansible
 
