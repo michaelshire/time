@@ -3,19 +3,19 @@ ADD ./init.sh ./
 ENV HOME=/tmp/
 
 # Install python3 for AZ CLI and ansible
-RUN yum install -y python3 python3-virtualenv python3-pip
+RUN yum install -y python3 python3-virtualenv python3-pip && yum clean all -y
 RUN python3 --version
+
+# Install Ansible
+RUN pip3 install --user ansible
+RUN ansible --version
+RUN chmod 777 /tmp/.ansible
 
 # Install AZ CLI
 ADD ./azure-cli.repo /etc/yum.repos.d/
 RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
 RUN yum install azure-cli -y && yum clean all -y
 RUN az --version
-
-# Install Ansible
-RUN pip3 install --user ansible
-RUN ansible --version
-RUN chmod 777 /tmp/.ansible
 
 # Install other tools
 RUN yum install atomic-openshift-clients
