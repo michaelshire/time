@@ -18,7 +18,7 @@ ENV HOME=/tmp/
 #RUN az --version
 
 # Install other tools
-RUN yum install openshift-clients -y --add-repo="rhel-7-server-ose-4.3-rpms" && yum clean all -y
+RUN yum install openshift-clients -y --enablerepo rhel-7-server-ose-4.3-rpms && yum clean all -y
 #RUN yum install nmap-ncat -y && yum clean all -y
 #RUN yum install net-tools -y && yum clean all -y
 #RUN yum install bind-utils -y && yum clean all -y
