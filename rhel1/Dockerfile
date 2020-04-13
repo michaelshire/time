@@ -3,7 +3,7 @@ ADD ./init.sh ./
 ENV HOME=/tmp/
 
 # Install python3 for AZ CLI
-# RUN yum install -y python3
+RUN yum install python3 python3-virtualenv python3-pip
 # RUN python3 --version
 
 # Install AZ CLI
@@ -13,8 +13,9 @@ ENV HOME=/tmp/
 # RUN az --version
 
 # Install Ansible
-RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y && yum clean all -y
-RUN yum install ansible -y && yum clean all -y
+# RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y && yum clean all -y
+RUN pip3 install ansible
+# RUN yum install ansible -y && yum clean all -y
 RUN ansible --version
 
 # Install other tools
