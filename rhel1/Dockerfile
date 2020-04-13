@@ -13,8 +13,7 @@ ENV HOME=/tmp/
 # RUN az --version
 
 # Install Ansible
-RUN subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
-# RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y && yum clean all -y
+RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y && yum clean all -y
 RUN yum install ansible -y && yum clean all -y
 RUN ansible --version
 
