@@ -1,13 +1,12 @@
-FROM registry.access.redhat.com/ubi7
+FROM registry.access.redhat.com/ubi8
 ADD ./init.sh ./
 
-RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm -y
-RUN yum install https://centos7.iuscommunity.org/ius-release.rpm -y
-RUN yum install -y python36u python36u-pip
+# RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm -y
+# RUN yum install https://centos7.iuscommunity.org/ius-release.rpm -y
+RUN yum install -y python3
 RUN python3 --version
 
 ADD ./azure-cli.repo /etc/yum.repos.d/
-RUN yum install rh-python36 -y && yum clean all -y
 RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
 RUN yum install azure-cli -y && yum clean all -y
 
