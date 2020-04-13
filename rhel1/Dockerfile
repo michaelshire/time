@@ -3,7 +3,7 @@ ADD ./init.sh ./
 ENV HOME=/tmp/
 
 # Install python3 for AZ CLI
-RUN yum install python3 python3-virtualenv python3-pip
+RUN yum install -y python3 python3-virtualenv python3-pip
 # RUN python3 --version
 
 # Install AZ CLI
