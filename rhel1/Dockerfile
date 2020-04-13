@@ -13,8 +13,7 @@ RUN yum install azure-cli -y && yum clean all -y
 RUN az --version
 
 # Install Ansible via python3-pip
-RUN yum -y install python3-pip && yum clean all -y
-RUN pip3 install ansible --user
+RUN yum install ansible -y && yum clean all -y
 RUN ansible --version
 
 # Install other tools
