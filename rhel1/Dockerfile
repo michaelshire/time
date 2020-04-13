@@ -13,6 +13,7 @@ RUN yum install azure-cli -y && yum clean all -y
 RUN az --version
 
 # Install Ansible via python3-pip
+RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y && yum clean all -y
 RUN yum install ansible -y && yum clean all -y
 RUN ansible --version
 
