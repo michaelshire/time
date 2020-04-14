@@ -24,7 +24,7 @@ RUN wget -q https://downloads-openshift-console.apps.2b5c6b0a.eastus.aroapp.io/a
 RUN tar -xvf ./oc.tar -C /tmp/
 RUN /tmp/oc version
 RUN chown -R 1001:1001 /tmp/oc
-RUN chown -R 1001:1001 /tmp/.kube
+#RUN chown -R 1001:1001 /tmp/.kube
 RUN yum install nmap-ncat -y && yum clean all -y
 RUN yum install net-tools -y && yum clean all -y
 RUN yum install bind-utils -y && yum clean all -y
