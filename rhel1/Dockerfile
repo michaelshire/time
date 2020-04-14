@@ -3,28 +3,29 @@ ADD ./init.sh ./
 ENV HOME=/tmp/
 
 # Install python3 for AZ CLI and ansible
-#RUN yum install -y python3 python3-virtualenv python3-pip && yum clean all -y
-#RUN python3 --version
+RUN yum install -y python3 python3-virtualenv python3-pip && yum clean all -y
+RUN python3 --version
 
 # Install Ansible
-#RUN pip3 install ansible
-#RUN ansible --version
-#RUN chmod 777 /tmp/.ansible
+RUN pip3 install ansible
+RUN ansible --version
+RUN chmod 777 /tmp/.ansible
 
 # Install AZ CLI
-#ADD ./azure-cli.repo /etc/yum.repos.d/
-#RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
-#RUN yum install azure-cli -y && yum clean all -y
-#RUN az --version
+ADD ./azure-cli.repo /etc/yum.repos.d/
+RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
+RUN yum install azure-cli -y && yum clean all -y
+RUN az --version
 
 # Install OC CLI
 RUN yum install wget -y && yum clean all -y
 RUN wget -q https://downloads-openshift-console.apps.2b5c6b0a.eastus.aroapp.io/amd64/linux/oc.tar
 RUN tar -xvf ./oc.tar -C /tmp/
-#RUN yum install nmap-ncat -y && yum clean all -y
-#RUN yum install net-tools -y && yum clean all -y
-#RUN yum install bind-utils -y && yum clean all -y
-#RUN yum install mod_ssl -y && yum clean all -y
+RUN /tmp/oc version
+RUN yum install nmap-ncat -y && yum clean all -y
+RUN yum install net-tools -y && yum clean all -y
+RUN yum install bind-utils -y && yum clean all -y
+RUN yum install mod_ssl -y && yum clean all -y
 
 RUN chown 1001:1001 init.sh && chmod o+w init.sh
 USER 1001
