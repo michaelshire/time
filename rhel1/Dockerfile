@@ -18,6 +18,7 @@ ENV HOME=/tmp/
 #RUN az --version
 
 # Install OC CLI
+RUN yum install wget -y && yum clean all -y
 RUN wget -q https://downloads-openshift-console.apps.2b5c6b0a.eastus.aroapp.io/amd64/linux/oc.tar
 RUN tar -xvf ./oc.tar -C /tmp/
 #RUN yum install nmap-ncat -y && yum clean all -y
