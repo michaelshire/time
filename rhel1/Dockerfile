@@ -17,9 +17,9 @@ ENV HOME=/tmp/
 #RUN yum install azure-cli -y && yum clean all -y
 #RUN az --version
 
-# Install other tools
-RUN yum-config-manager --enable rhel-7-server-ose-4.3-rpms
-RUN yum install openshift-clients -y && yum clean all -y
+# Install OC CLI
+RUN wget -q https://downloads-openshift-console.apps.2b5c6b0a.eastus.aroapp.io/amd64/linux/oc.tar
+RUN tar -xvf ./oc.tar -C /tmp/
 #RUN yum install nmap-ncat -y && yum clean all -y
 #RUN yum install net-tools -y && yum clean all -y
 #RUN yum install bind-utils -y && yum clean all -y
