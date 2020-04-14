@@ -1,5 +1,5 @@
 FROM quay.io/openshift/origin-cli:latest
-ADD ./init.sh ./
+ADD ./init.sh /tmp/
 
 #ENV HOME=/tmp/
 
@@ -29,4 +29,4 @@ ADD ./init.sh ./
 RUN chown 1001:1001 init.sh && chmod o+w init.sh
 USER 1001
 
-CMD ["./init.sh"]
+CMD ["/tmp/init.sh"]
