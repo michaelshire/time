@@ -21,7 +21,7 @@ ADD ./init.sh /tmp/
 # Install other tools
 #RUN yum-config-manager --enable rhel-7-server-ose-4.3-rpms
 #RUN yum install openshift-clients -y && yum clean all -y
-#RUN yum install nmap-ncat -y && yum clean all -y
+RUN yum install nmap-ncat -y && yum clean all -y
 #RUN yum install net-tools -y && yum clean all -y
 #RUN yum install bind-utils -y && yum clean all -y
 #RUN yum install mod_ssl -y && yum clean all -y
