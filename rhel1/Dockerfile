@@ -28,6 +28,7 @@ RUN yum install nmap-ncat -y && yum clean all -y
 RUN yum install net-tools -y && yum clean all -y
 RUN yum install bind-utils -y && yum clean all -y
 RUN yum install mod_ssl -y && yum clean all -y
+RUN yum install openssl -y && yum clean all -y
 
 RUN chown 1001:1001 init.sh && chmod o+w init.sh
 USER 1001
