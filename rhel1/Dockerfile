@@ -2,6 +2,10 @@ FROM registry.access.redhat.com/ubi8
 ADD ./init.sh ./
 ENV HOME=/tmp/
 
+RUN yum install wget -y
+# RUN yum install wget -y && yum clean all -y
+RUN wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip
+
 # Install git
 RUN yum install -y git
 # RUN yum install -y git && yum clean all -y
@@ -29,8 +33,6 @@ RUN az --version
 RUN chmod -R 777 /tmp/.azure
 
 # Install OC CLI
-RUN yum install wget -y
-# RUN yum install wget -y && yum clean all -y
 RUN wget -q https://downloads-openshift-console.apps.2b5c6b0a.eastus.aroapp.io/amd64/linux/oc.tar
 RUN tar -xvf ./oc.tar -C /tmp/
 RUN /tmp/oc version
