@@ -11,7 +11,7 @@ RUN yum install -y python3 python3-virtualenv python3-pip && yum clean all -y
 # RUN python3 --version
 
 # Install Ansible
-RUN pip3 install ansible]azure]
+RUN pip3 install ansible[azure]
 RUN ansible --version
 RUN chmod -R 777 /tmp/.ansible
 
