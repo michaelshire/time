@@ -2,9 +2,13 @@ FROM registry.access.redhat.com/ubi8
 ADD ./init.sh ./
 ENV HOME=/tmp/
 
+# Install git
+RUN yum install -y git && yum clean all -y
+# RUN git --version
+
 # Install python3 for AZ CLI and ansible
 RUN yum install -y python3 python3-virtualenv python3-pip && yum clean all -y
-#RUN python3 --version
+# RUN python3 --version
 
 # Install Ansible
 RUN pip3 install ansible]azure]
