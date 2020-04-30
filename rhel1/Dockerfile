@@ -21,9 +21,6 @@ RUN pip3 install ansible[azure]
 RUN ansible --version
 RUN chmod -R 777 /tmp/.ansible
 
-# Install speedtest-cli
-RUN pip install speedtest-cli
-
 # Install AZ CLI
 ADD ./azure-cli.repo /etc/yum.repos.d/
 RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
