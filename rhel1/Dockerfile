@@ -31,16 +31,14 @@ RUN chmod -R 777 /tmp/.azure
 
 # Install helm 3
 RUN wget -q https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz
-RUN tar -xvf ./helm-v3.2.0-linux-amd64.tar.gz -C /tmp/
-RUN mv /tmp/linux-amd64/helm /usr/local/bin/helm
+RUN tar -xvf ./helm-v3.2.0-linux-amd64.tar.gz -C /usr/local/bin/
 RUN chmod 755 /usr/local/bin/helm
 
 # Install OC CLI
 RUN wget -q https://downloads-openshift-console.apps.2b5c6b0a.eastus.aroapp.io/amd64/linux/oc.tar
-RUN tar -xvf ./oc.tar -C /usr/local/bin/oc
+RUN tar -xvf ./oc.tar -C /usr/local/bin/
 RUN chmod 755 /usr/local/bin/oc
 RUN oc version
-RUN chmod -R 777 /tmp/oc
 RUN yum install nmap-ncat -y
 RUN yum install net-tools -y
 RUN yum install bind-utils -y
