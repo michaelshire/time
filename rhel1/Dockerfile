@@ -32,7 +32,7 @@ RUN chmod -R 777 /tmp/.azure
 # Install helm 3
 RUN wget -q https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz
 RUN tar -xvf ./helm-v3.2.0-linux-amd64.tar.gz -C /tmp/
-RUN mv ./linux-amd64/helm /usr/local/bin/helm
+RUN mv /tmp/linux-amd64/helm /usr/local/bin/helm
 RUN chmod 755 /usr/local/bin/helm
 
 # Install OC CLI
