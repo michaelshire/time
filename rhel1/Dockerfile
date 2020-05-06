@@ -41,7 +41,6 @@ RUN tar -xvf ./oc.tar -C /usr/local/bin/
 RUN chmod 755 /usr/local/bin/oc
 RUN oc version
 RUN yum install iputils -y
-RUN yum install traceroute -y
 RUN yum install nmap-ncat -y
 RUN yum install net-tools -y
 RUN yum install bind-utils -y
