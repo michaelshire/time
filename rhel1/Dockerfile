@@ -45,7 +45,7 @@ RUN chmod -R 777 /tmp/.cache
 # RUN chmod -R 777 /tmp/.cache
 
 # Install OC CLI
-RUN wget -q https://downloads-openshift-console.apps.2b5c6b0a.eastus.aroapp.io/amd64/linux/oc.tar
+RUN wget -q https://downloads-openshift-console.apps.mj0pbxvw.westus2.aroapp.io/amd64/linux/oc.tar
 RUN tar -xvf ./oc.tar -C /usr/local/bin/
 RUN chmod 755 /usr/local/bin/oc
 RUN oc version
