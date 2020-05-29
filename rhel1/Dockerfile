@@ -29,12 +29,20 @@ RUN yum install azure-cli -y
 RUN az --version
 RUN chmod -R 777 /tmp/.azure
 
-# Install helm 3
-RUN wget -q https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz
-RUN tar -xvf ./helm-v3.2.0-linux-amd64.tar.gz -C /tmp/
+# Install helm 2
+RUN wget -q https://get.helm.sh/helm-v2.16.7-linux-amd64.tar.gz
+RUN tar -xvf ./helm-v2.16.7-linux-amd64.tar.gz -C /tmp/
 RUN mv /tmp/linux-amd64/helm /usr/local/bin/helm
 RUN chmod 755 /usr/local/bin/helm
 RUN chmod -R 777 /tmp/.cache
+
+
+# Install helm 3
+# RUN wget -q https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz
+# RUN tar -xvf ./helm-v3.2.0-linux-amd64.tar.gz -C /tmp/
+# RUN mv /tmp/linux-amd64/helm /usr/local/bin/helm
+# RUN chmod 755 /usr/local/bin/helm
+# RUN chmod -R 777 /tmp/.cache
 
 # Install OC CLI
 RUN wget -q https://downloads-openshift-console.apps.2b5c6b0a.eastus.aroapp.io/amd64/linux/oc.tar
