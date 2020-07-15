@@ -2,6 +2,8 @@ FROM registry.redhat.io/ubi8
 ADD ./init.sh ./
 ENV HOME=/tmp/
 
+RUN yum install watch -y
+
 RUN yum install wget -y
 # RUN yum install wget -y && yum clean all -y
 # RUN wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip
