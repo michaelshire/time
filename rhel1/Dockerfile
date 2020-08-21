@@ -1,4 +1,4 @@
-FROM image-registry.openshift-image-registry.svc:5000/2temp/ubi8:latest
+FROM image-registry.openshift-image-registry.svc:5000/2temp/ubi8
 ADD ./init.sh ./
 ENV HOME=/tmp/
 
