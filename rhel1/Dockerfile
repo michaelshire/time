@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8:latest
+FROM ubi8:latest
 ADD ./init.sh ./
 ENV HOME=/tmp/
 
