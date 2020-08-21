@@ -40,15 +40,15 @@ RUN chmod -R 777 /tmp/.azure
 
 
 # Install helm 3
-RUN wget -q https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz
+RUN wget -q https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64
 RUN tar -xvf ./helm-v3.2.0-linux-amd64.tar.gz -C /tmp/
 RUN mv /tmp/linux-amd64/helm /usr/local/bin/helm
 RUN chmod 755 /usr/local/bin/helm
 RUN chmod -R 777 /tmp/.cache
 
 # Install OC CLI
-RUN wget -q https://downloads-openshift-console.apps.mj0pbxvw.westus2.aroapp.io/amd64/linux/oc.tar
-RUN tar -xvf ./oc.tar -C /usr/local/bin/
+RUN wget -q https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.4/linux/oc.tar.gz
+RUN tar -xzf ./oc.tar.gz -C /usr/local/bin/
 RUN chmod 755 /usr/local/bin/oc
 RUN oc version
 RUN yum install iputils -y
