@@ -2,6 +2,8 @@ FROM ubi8:latest
 ADD ./init.sh ./
 ENV HOME=/tmp/
 
+RUN yum update -y
+
 # Install docker cli
 RUN yum install container-tools -y
 
