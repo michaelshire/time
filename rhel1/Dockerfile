@@ -3,7 +3,7 @@ ADD ./init.sh ./
 ENV HOME=/tmp/
 
 # Install docker cli
-RUN yum install docker-ce-cli
+RUN yum install podman
 
 # RUN yum install watch -y
 
