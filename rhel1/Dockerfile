@@ -3,7 +3,7 @@ ADD ./init.sh ./
 ENV HOME=/tmp/
 
 # Install docker cli
-RUN yum install container-tools
+RUN yum install container-tools -y
 
 # RUN yum install watch -y
 
