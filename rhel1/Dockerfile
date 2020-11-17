@@ -2,7 +2,10 @@ FROM ubi8:latest
 ADD ./init.sh ./
 ENV HOME=/tmp/
 
-RUN yum install watch -y
+# Install docker cli
+RUN yum install docker-ce-cli
+
+# RUN yum install watch -y
 
 RUN yum install wget -y
 # RUN yum install wget -y && yum clean all -y
