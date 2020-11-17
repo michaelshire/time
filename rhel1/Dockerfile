@@ -2,11 +2,14 @@ FROM ubi8:latest
 ADD ./init.sh ./
 ENV HOME=/tmp/
 
-RUN yum --enablerepo=rhel-7-server-rpms install yum-utils -y
-RUN yum-config-manager repos --enable=rhel-7-server-rpms
-RUN yum-config-manager repos --enable=rhel-7-server-extras-rpms
-RUN yum-config-manager repos --enable=rhel-7-server-optional-rpms
-RUN yum update -y
+RUN yum module enable -y container-tools:1.0
+RUN yum module install -y container-tools:1.0
+
+#RUN yum --enablerepo=rhel-7-server-rpms install yum-utils -y
+#RUN yum-config-manager repos --enable=rhel-7-server-rpms
+#RUN yum-config-manager repos --enable=rhel-7-server-extras-rpms
+#RUN yum-config-manager repos --enable=rhel-7-server-optional-rpms
+#RUN yum update -y
 
 # Install container tools
 RUN yum install podman skopeo buildah -y
