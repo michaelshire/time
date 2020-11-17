@@ -7,8 +7,8 @@ RUN subscription-manager repos --enable=rhel-7-server-extras-rpms
 RUN subscription-manager repos --enable=rhel-7-server-optional-rpms
 RUN yum update -y
 
-# Install docker cli
-RUN yum install container-tools -y
+# Install container tools
+RUN yum install podman skopeo buildah -y
 
 # RUN yum install watch -y
 
