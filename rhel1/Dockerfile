@@ -2,6 +2,9 @@ FROM ubi8:latest
 ADD ./init.sh ./
 ENV HOME=/tmp/
 
+RUN subscription-manager repos --enable=rhel-7-server-rpms
+RUN subscription-manager repos --enable=rhel-7-server-extras-rpms
+RUN subscription-manager repos --enable=rhel-7-server-optional-rpms
 RUN yum update -y
 
 # Install docker cli
