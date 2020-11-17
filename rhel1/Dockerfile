@@ -5,6 +5,7 @@ ENV HOME=/tmp/
 # RUN yum module enable -y container-tools:1.0
 # RUN yum module install -y container-tools:1.0
 
+RUN yum install yum-utils
 RUN yum-config-manager repos --enable=rhel-8-for-x86_64-baseos-rpms
 RUN yum-config-manager repos --enable=rhel-8-for-x86_64-appstream-rpms
 #RUN yum update -y
