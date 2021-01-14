@@ -13,6 +13,7 @@ RUN yum-config-manager --add-repo https://download.docker.com/linux/centos/docke
 
 # Install container tools
 #RUN yum install podman skopeo buildah -y
+RUN yum install docker-ce-cli -y
 
 # RUN yum install watch -y
 
