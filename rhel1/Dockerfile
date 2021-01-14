@@ -65,7 +65,7 @@ RUN tar -xzf ./oc.tar.gz -C /usr/local/bin/
 RUN chmod 755 /usr/local/bin/oc
 RUN oc version
 #RUN yum install iputils -y
-#RUN yum install nmap-ncat -y
+RUN yum install nmap-ncat -y
 #RUN yum install net-tools -y
 #RUN yum install bind-utils -y
 #RUN yum install mod_ssl -y
