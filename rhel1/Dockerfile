@@ -27,21 +27,21 @@ RUN yum install -y git
 # RUN git --version
 
 # Install python3 for AZ CLI and ansible
-RUN yum install -y python3 python3-virtualenv python3-pip
+#RUN yum install -y python3 python3-virtualenv python3-pip
 #RUN yum install -y python3 python3-virtualenv python3-pip && yum clean all -y
 # RUN python3 --version
 
 # Install Ansible
-RUN pip3 install ansible[azure]
-RUN ansible --version
-RUN chmod -R 777 /tmp/.ansible
+#RUN pip3 install ansible[azure]
+#RUN ansible --version
+#RUN chmod -R 777 /tmp/.ansible
 
 # Install AZ CLI
-ADD ./azure-cli.repo /etc/yum.repos.d/
-RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
-RUN yum install azure-cli -y
+#ADD ./azure-cli.repo /etc/yum.repos.d/
+#RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
+#RUN yum install azure-cli -y
 # RUN yum install azure-cli -y && yum clean all -y
-RUN az --version
+#RUN az --version
 RUN chmod -R 777 /tmp/.azure
 
 # Install helm 2
@@ -53,14 +53,14 @@ RUN chmod -R 777 /tmp/.azure
 
 
 # Install helm 3
-RUN wget -q https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64
-RUN tar -xvf ./helm-v3.2.0-linux-amd64.tar.gz -C /tmp/
-RUN mv /tmp/linux-amd64/helm /usr/local/bin/helm
+RUN wget -q https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64 -O /usr/local/bin/helm
+# RUN tar -xvf ./helm-v3.2.0-linux-amd64.tar.gz -C /tmp/
+# RUN mv /tmp/linux-amd64/helm /usr/local/bin/helm
 RUN chmod 755 /usr/local/bin/helm
 RUN chmod -R 777 /tmp/.cache
 
 # Install OC CLI
-RUN wget -q https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.4/linux/oc.tar.gz
+RUN wget -q https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.5/linux/oc.tar.gz
 RUN tar -xzf ./oc.tar.gz -C /usr/local/bin/
 RUN chmod 755 /usr/local/bin/oc
 RUN oc version
