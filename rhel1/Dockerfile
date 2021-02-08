@@ -32,9 +32,9 @@ RUN yum install -y python3 python3-virtualenv python3-pip
 # RUN python3 --version
 
 # Install Ansible
-RUN pip3 install ansible[azure]
-RUN ansible --version
-RUN chmod -R 777 /tmp/.ansible
+# RUN pip3 install ansible[azure]
+# RUN ansible --version
+# RUN chmod -R 777 /tmp/.ansible
 
 # Install AZ CLI
 ADD ./azure-cli.repo /etc/yum.repos.d/
