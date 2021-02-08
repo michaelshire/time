@@ -55,7 +55,7 @@ RUN chmod -R 777 /tmp/.azure
 # Install helm 3
 RUN wget -q https://mirror.openshift.com/pub/openshift-v4/clients/helm/latest/helm-linux-amd64 -O /usr/local/bin/helm
 RUN chmod 755 /usr/local/bin/helm
-RUN chmod -R 777 /tmp/.cache
+# RUN chmod -R 777 /tmp/.cache
 
 # Install OC CLI
 RUN wget -q https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.5/linux/oc.tar.gz
