@@ -6,14 +6,14 @@ ENV HOME=/tmp/
 # RUN yum module install -y container-tools:1.0
 
 RUN yum install yum-utils -y
-RUN yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-RUN yum-config-manager repos --enable=rhel-8-for-x86_64-baseos-rpms
-RUN yum-config-manager repos --enable=rhel-8-for-x86_64-appstream-rpms
+# RUN yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# RUN yum-config-manager repos --enable=rhel-8-for-x86_64-baseos-rpms
+# RUN yum-config-manager repos --enable=rhel-8-for-x86_64-appstream-rpms
 #RUN yum update -y
 
 # Install container tools
 # RUN yum install podman skopeo buildah -y
-RUN yum install docker-ce-cli -y
+# RUN yum install docker-ce-cli -y
 
 # RUN yum install watch -y
 
