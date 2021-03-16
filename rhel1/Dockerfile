@@ -21,6 +21,10 @@ RUN yum install wget -y
 # RUN yum install wget -y && yum clean all -y
 # RUN wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip
 
+# Install kubeseal
+RUN wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.15.0/kubeseal-linux-amd64 -O /usr/local/bin/kubeseal
+RUN chmod 755 /usr/local/bin/kubeseal
+
 # Install git
 RUN yum install -y git
 # RUN yum install -y git && yum clean all -y
